@@ -1,4 +1,4 @@
 package com.heady.todayapp.model;
 
-public class task {
+public class Task {
 }

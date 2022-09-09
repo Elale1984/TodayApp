@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmls:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body>
-
+    <div class="container">
+        <h1 th:text="${welcome}">Login Failed Default Message</h1>
+        <h1 th:text="${actionLabel}">Action Label Failed Default</h1>
+        <div class="loginForm">
+            <form th:action="@{/doLogin}" method="post">
+                <table>
+                    <tr>
+                        <td>User Name:</td><td><input type="text" name="username" id="username" placeholder="UserName" required ></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td><td><input type="text"  name="password" id="password" placeholder="Password" required></td>
+                    </tr>
+                    <tr>
+                        <td align="center "colspan="2"><input type="submit" value="Sign In" style="margin-top: 20px;"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
