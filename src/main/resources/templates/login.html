@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmls:th="http://www.thymeleaf.org">
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="jttp://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="../static/css/login.css" th:href="@{/css/login.css}">
+
 </head>
 <body>
-    <div class="container">
-        <h1 th:text="${welcome}">Login Failed Default Message</h1>
-        <h1 th:text="${actionLabel}">Action Label Failed Default</h1>
-        <div class="loginForm">
-            <form th:action="@{/doLogin}" method="post">
-                <table>
-                    <tr>
-                        <td>User Name:</td><td><input type="text" name="username" id="username" placeholder="UserName" required ></td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td><td><input type="text"  name="password" id="password" placeholder="Password" required></td>
-                    </tr>
-                    <tr>
-                        <td align="center "colspan="2"><input type="submit" value="Sign In" style="margin-top: 20px;"/></td>
-                    </tr>
-                </table>
-            </form>
+    <div layout:fragment="content">
+        <div class="container">
+            <h1 class="welcomeHead" th:text="${welcome}">Login Failed Default Message</h1>
+
+
+            <div class="loginForm">
+                <h2 class="loginLabel" th:text="${actionLabel}">Action Label Failed Default</h2>
+                <form th:action="@{/doLogin}" method="post">
+                    <table>
+                        <tr>
+                            <td class="labels">User Name:</td><td><input class="textInput" type="text" name="username" id="username" placeholder="UserName" required ></td>
+                        </tr>
+                        <tr>
+                            <td class="labels">Password:</td><td><input class="textInput" type="text"  name="password" id="password" placeholder="Password" required></td>
+                        </tr>
+                        <tr>
+                            <td align="right" class="loginButton__Container" colspan="4"><input class="loginButton" type="submit" value="Sign In" style="margin-top: 20px;"/></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
     </div>
 </body>
