@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmls:th="http://www.thymeleaf.org">
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="http://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+
 </head>
 <body>
-    <h1 th:text="${message1}">Welcome Message</h1>
+    <div layout:fragment="content">
+        <div class="container">
+            <div class="sideBar">
+                <div class="sideBar__Top">
+                    <h2>Edward Lale</h2>
+                    <h3>edwardlale84@gmail.com</h3>
 
+                </div>
+                <div class="sideBar__Bottom">
+
+                </div>
+            </div>
+            <div class="todayAgenda">
+                <h1 class="homeMessage" th:text="${message1}">Welcome Message</h1>
+            </div>
+
+
+        </div>
+    </div>
 </body>
 </html>

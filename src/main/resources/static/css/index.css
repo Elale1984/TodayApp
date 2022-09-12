@@ -1,0 +1,43 @@
+body {
+    background-color: #2e2e2e;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.sideBar {
+    flex: 0.2;
+    position: sticky;
+    top: 0;
+    flex-direction: column;
+
+}
+
+.sideBar__Top {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid yellow;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    align-content: center;
+    background-color: #2e2e2e;
+
+}
+
+.sideBar__Bottom {
+
+}
+
+.todayAgenda {
+    flex: 0.8;
+    flex-direction: column;
+    align-content: center;
+}
+
+.homeMessage{
+    color: yellow;
+    text-shadow: 0 0 10px lawngreen;
+    font-size: 70px;
+}

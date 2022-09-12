@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org" xmls:layout="jttp://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="http://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -10,8 +10,6 @@
     <div layout:fragment="content">
         <div class="container">
             <h1 class="welcomeHead" th:text="${welcome}">Login Failed Default Message</h1>
-
-
             <div class="loginForm">
                 <h2 class="loginLabel" th:text="${actionLabel}">Action Label Failed Default</h2>
                 <form th:action="@{/doLogin}" method="post">

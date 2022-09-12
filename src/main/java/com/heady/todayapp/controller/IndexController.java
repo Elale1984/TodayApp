@@ -11,7 +11,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String display(Model model){
-        model.addAttribute("message1", "Welcome Home");
+        model.addAttribute("message1", "Today's Agenda");
         return "index";
     }
 
