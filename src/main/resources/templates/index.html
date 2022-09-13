@@ -8,22 +8,50 @@
 </head>
 <body>
     <div layout:fragment="content">
-        <div class="container">
-            <div class="sideBar">
-                <div class="sideBar__Top">
-                    <h2>Edward Lale</h2>
-                    <h3>edwardlale84@gmail.com</h3>
-
-                </div>
-                <div class="sideBar__Bottom">
-
-                </div>
+        <div class="fullContainer">
+            <div class="homeMessage">
+                <h1 th:text="${message1}">Welcome Message</h1>
             </div>
-            <div class="todayAgenda">
-                <h1 class="homeMessage" th:text="${message1}">Welcome Message</h1>
+            <div class="todayList">
+                <form class="taskList" action="#" th:action="@{doDelete}" th:object="${task}" method="post">
+                    <table class="task__container" th:each="userTask: ${userTasks}">
+                        <tr>
+                            <td>
+                                <div class="task__header">
+                                    <div class="task__header-date">
+                                        <h2 class="task-date" th:text="${userTask.date}"></h2>
+                                    </div>
+                                    <div class="task__header-time">
+                                        <h2 class="task-time" th:text="${userTask.startTime}"></h2>
+                                    </div>
+                                    <div class="task__header-title">
+                                        <h2 class="task-title" th:text="${userTask.title}"></h2>
+                                    </div>
+                                    <div class="action__buttons">
+                                        <a th:href="@{'/editTask/' + ${userTask.id}}">
+                                            <img class="action__buttons-edit"
+                                                 th:src="@{/img/ic_edit.png}" alt="edit task icon"/>
+                                        </a>
+                                        <a th:href="@{'/deleteTask/' + ${userTask.id}}" >
+                                            <img class="action__buttons-delete"
+                                                 th:src="@{/img/ic_delete.png}" alt="delete task icon"/>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="task__body-details">
+                                    <h4 class="task-details" th:text="${userTask.details}"></h4>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
-
-
         </div>
     </div>
 </body>

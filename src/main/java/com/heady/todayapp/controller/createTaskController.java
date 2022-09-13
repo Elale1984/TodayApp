@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/createTask")
-public class AddTaskController {
+public class createTaskController {
 
     @GetMapping("/")
     public String display(Model model){
