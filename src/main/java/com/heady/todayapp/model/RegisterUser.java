@@ -5,12 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
-public class User {
+@AllArgsConstructor
+public class RegisterUser {
+
     String username;
     String password;
-    String userid;
+    String rePassword;
 }

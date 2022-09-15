@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="http://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="../static/css/register.css" th:href="@{/css/register.css}">
+
+</head>
+<body>
+  <div layout:fragment="content">
+    <div class="register__Content">
+      <div class="content__welcome-message">
+        <h1 th:text="${welcomeMessage}"></h1>
+      </div>
+      <div class="task-form">
+        <div class="container">
+          <form action="#" th:action="@{doRegister}" th:object="${registerUser}" method="post">
+            <div class="row">
+              <div class="form-group">
+                <input class="form-control" type="text" id="task-title" th:field="*{username}" placeholder="Username">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <input class="form-control" type="text"  id="task-startTime" th:field="*{password}" placeholder="Password">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <input class="form-control" type="text" id="task-date" placeholder="Re-Enter Password">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <button class="btn btn-primary" type="submit">Register</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

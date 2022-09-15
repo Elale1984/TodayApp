@@ -7,26 +7,33 @@
 
 </head>
 <body>
-    <div layout:fragment="content">
-        <div class="container">
-            <h1 class="welcomeHead" th:text="${welcome}">Login Failed Default Message</h1>
-            <div class="loginForm">
-                <h2 class="loginLabel" th:text="${actionLabel}">Action Label Failed Default</h2>
-                <form th:action="@{/doLogin}" method="post">
-                    <table>
-                        <tr>
-                            <td class="labels">User Name:</td><td><input class="textInput" type="text" name="username" id="username" placeholder="UserName" required ></td>
-                        </tr>
-                        <tr>
-                            <td class="labels">Password:</td><td><input class="textInput" type="text"  name="password" id="password" placeholder="Password" required></td>
-                        </tr>
-                        <tr>
-                            <td align="right" class="loginButton__Container" colspan="4"><input class="loginButton" type="submit" value="Sign In" style="margin-top: 20px;"/></td>
-                        </tr>
-                    </table>
+<div layout:fragment="content">
+    <div class="login__Content">
+        <div class="content__welcome-message">
+            <h1 th:text="${welcomeMessage}"></h1>
+        </div>
+        <div class="login-form">
+            <div class="container">
+                <form action="#" th:action="@{doLogin}" th:object="${loginData}" method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="task-title" th:field="*{username}" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text"  id="task-startTime" th:field="*{password}" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
