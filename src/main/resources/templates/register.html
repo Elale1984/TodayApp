@@ -14,7 +14,7 @@
       </div>
       <div class="task-form">
         <div class="container">
-          <form action="#" th:action="@{doRegister}" th:object="${registerUser}" method="post">
+          <form action="#" th:action="@{doRegister}" th:object="${user}" method="post">
             <div class="row">
               <div class="form-group">
                 <input class="form-control" type="text" id="task-title" th:field="*{username}" placeholder="Username">

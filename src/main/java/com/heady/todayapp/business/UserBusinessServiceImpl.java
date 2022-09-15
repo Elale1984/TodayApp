@@ -3,7 +3,9 @@ package com.heady.todayapp.business;
 import com.heady.todayapp.model.User;
 import com.heady.todayapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserBusinessServiceImpl implements UserBusinessServiceInterface {
 
     @Autowired

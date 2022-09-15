@@ -12,5 +12,5 @@ import lombok.Setter;
 public class User {
     String username;
     String password;
-    int userid;
+
 }
