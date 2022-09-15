@@ -16,4 +16,5 @@ public class Task {
     String starttime;
     String date;
     String details;
+    int userid;
 }
