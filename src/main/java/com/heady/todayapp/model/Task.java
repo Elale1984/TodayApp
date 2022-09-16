@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Task {
 
-    String id;
+    int id;
     String title;
     String starttime;
     String date;

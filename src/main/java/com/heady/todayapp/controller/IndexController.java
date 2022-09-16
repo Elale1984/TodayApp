@@ -1,6 +1,8 @@
 package com.heady.todayapp.controller;
 
+import com.heady.todayapp.business.TaskBusinessServiceInterface;
 import com.heady.todayapp.model.Task;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +16,16 @@ import java.util.List;
 @RequestMapping("/index")
 public class IndexController {
 
-    List<Task> userTasks = new ArrayList<>();
-    Task task1 = new Task("111", "The Test Task", "1:30 PM", "3/3/23", "Go To the doctor and find out if I am still living. Then I had to leave because it was weird  and find out if I am still living. Then I had to leave because i");
-    Task task2 = new Task("112", "The Test Task 2", "11:30 PM", "3/3/23", "Watch some tv");
+    @Autowired
+    TaskBusinessServiceInterface service;
+
+
 
     @GetMapping("/")
     public String display(Model model){
-        userTasks.add(task1);
-        userTasks.add(task2);
+        List<Task> allTasks = service.getAllTasks();
         model.addAttribute("message1", "Today's Agenda");
-        model.addAttribute("userTasks", userTasks);
+        model.addAttribute("userTasks", allTasks);
         return "index";
     }
 

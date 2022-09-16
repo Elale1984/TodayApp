@@ -25,17 +25,22 @@ public class TaskBusinessServiceImpl implements TaskBusinessServiceInterface {
     }
 
     @Override
-    public Task readTask(String id) {
+    public Task readTask(int id) {
         return service.getTaskById(id);
     }
 
     @Override
-    public void deleteTask(String id) {
+    public void deleteTask(int id) {
         service.deleteTask(id);
     }
 
     @Override
     public List<Task> getAllTasks() {
         return service.getAllTasks();
+    }
+
+    @Override
+    public int getNextTaskId() {
+        return service.getNextTaskId();
     }
 }

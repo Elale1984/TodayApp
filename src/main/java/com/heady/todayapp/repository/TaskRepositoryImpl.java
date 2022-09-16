@@ -16,6 +16,8 @@ public class TaskRepositoryImpl implements TaskRepository{
     private static final String EDIT_TASK_BY_ID = "UPDATE task SET title=?, starttime=?, date=?, details=? WHERE id=?";
     private static final String DELETE_TASK_BY_ID = "DELETE FROM task WHERE id=?";
 
+    private static final String GET_NEXT_TASK_ID_QUERY = "SELECT MAX(id) FROM task";
+
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -27,20 +29,20 @@ public class TaskRepositoryImpl implements TaskRepository{
     }
 
     @Override
-    public void deleteTask(String id) {
+    public void deleteTask(int id) {
         jdbcTemplate.update(DELETE_TASK_BY_ID, id);
     }
 
     @Override
     public void editTask(Task task) {
-        jdbcTemplate.update(EDIT_TASK_BY_ID, task.getId(), task.getTitle(), task.getStarttime(),
-                task.getDetails(), task.getDetails());
+        jdbcTemplate.update(EDIT_TASK_BY_ID, task.getTitle(), task.getStarttime(),
+                task.getDate(), task.getDetails(), task.getId());
     }
 
     @Override
-    public Task getTaskById(String id) {
+    public Task getTaskById(int id) {
         return jdbcTemplate.queryForObject(GET_TASK_BY_ID, (rs, rowNum) -> new Task(
-            rs.getString("id"),
+            rs.getInt("id"),
             rs.getString("title"),
             rs.getString("starttime"),
             rs.getString("date"),
@@ -51,11 +53,19 @@ public class TaskRepositoryImpl implements TaskRepository{
     @Override
     public List<Task> getAllTasks() {
         return jdbcTemplate.query(GET_ALL_TASKS, (rs, rowNum) -> new Task(
-            rs.getString("id"),
+            rs.getInt("id"),
             rs.getString("title"),
             rs.getString("starttime"),
             rs.getString("date"),
             rs.getString("details")
         ));
+    }
+
+    @Override
+    public int getNextTaskId() {
+        if(jdbcTemplate.queryForObject(GET_NEXT_TASK_ID_QUERY, Integer.class) == null)
+            return 0;
+        else
+            return jdbcTemplate.queryForObject(GET_NEXT_TASK_ID_QUERY, Integer.class) + 1;
     }
 }
