@@ -17,7 +17,8 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User getUserByUsername(String username) {
-        return jdbcTemplate.queryForObject(GET_USER_BY_USERNAME_QUERY,(rs, rowNum) -> new User(rs.getString("username"),
+        return jdbcTemplate.queryForObject(GET_USER_BY_USERNAME_QUERY,(rs, rowNum) -> new User(
+                rs.getString("username"),
                 rs.getString("password")), username);
     }
 
