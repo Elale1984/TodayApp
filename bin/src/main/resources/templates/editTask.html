@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="jttps://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Task</title>
+    <link rel="stylesheet" href="../static/css/editTask.css" th:href="@{/css/editTask.css}">
+    <link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="editTask__Content">
+        <div class="content__welcome-message">
+            <h1 th:text="${messageEditTask}"></h1>
+        </div>
+        <div class="task-form">
+            <div class="container">
+                <form action="#" th:action="@{doEdit}" th:object="${task}" method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="task-title" th:field="*{title}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text"  id="task-startTime" th:field="*{starttime}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text" rows="20" id="task-date" th:field="*{date}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4 form-group-redact">
+                            <input class="form-control details" type="text" id="task-details" th:field="*{details}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Edit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
