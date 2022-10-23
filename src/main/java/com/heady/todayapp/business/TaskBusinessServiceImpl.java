@@ -3,6 +3,7 @@ package com.heady.todayapp.business;
 
 import com.heady.todayapp.model.Task;
 import com.heady.todayapp.repository.TaskRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class TaskBusinessServiceImpl implements TaskBusinessServiceInterface {
 
     @Override
     public void createTask(Task task) {
+
         service.createTask(task);
     }
 

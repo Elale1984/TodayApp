@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org" xmls:layout="jttps://www.utlraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Task</title>
+    <link rel="stylesheet" href="../static/css/createTask.css" th:href="@{/css/createTask.css}">
+    <link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="createTask__Content">
+        <div class="content__welcome-message">
+            <h1 th:text="${messageCreateTask}"></h1>
+        </div>
+        <div class="task-form">
+            <div class="container">
+                <form action="#" th:action="@{doTask}" th:object="${task}" method="post">
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="task-title" th:field="*{title}" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text"  id="task-startTime" th:field="*{starttime}" placeholder="Start Time">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="task-date" th:field="*{date}" placeholder="Date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4 form-group-redact">
+                            <input class="form-control details" type="text" id="task-details" th:field="*{details}" placeholder="Details">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
