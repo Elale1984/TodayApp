@@ -11,12 +11,10 @@
 	<groupId>com.heady</groupId>
 	<artifactId>TodayApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>TodayApp</name>
 	<description>TodayApp</description>
 	<properties>
-		<java.version>11</java.version>
-		<warname>TodayApp</warname>
+		<java.version>18</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -60,31 +58,12 @@
 	</dependencies>
 
 	<build>
-	<finalName>today</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.3.1</version>
-				<configuration>
-					<warSourceDirectory>WebContent</warSourceDirectory>
-					<warName>${warname}</warName>
-				</configuration>
-			</plugin>
 		</plugins>
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<includes>
-					<include>log4j.xml</include>
-				</includes>
-				<targetPath>${project.basedir}/target/classes</targetPath>
-			</resource>
-		</resources>
 	</build>
 
 </project>
