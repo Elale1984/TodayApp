@@ -26,7 +26,7 @@ public class LoginController {
     }
     @GetMapping("/error")
     public String failLogin(User user, Model model) {
-        model.addAttribute("welcomeMessage", "Login Failed");
+        model.addAttribute("welcomeMessage", "Login Failed, Please Try Again");
         model.addAttribute("loginData", new User());
         return "login";
     }
