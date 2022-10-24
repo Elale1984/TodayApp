@@ -36,6 +36,7 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
@@ -58,6 +59,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>today</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
