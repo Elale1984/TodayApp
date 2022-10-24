@@ -3,6 +3,8 @@ package com.heady.todayapp.controller;
 import com.heady.todayapp.business.UserBusinessServiceInterface;
 import com.heady.todayapp.model.Task;
 import com.heady.todayapp.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +18,8 @@ public class LoginController {
 
     @Autowired
     UserBusinessServiceInterface userBusinessServiceInterface;
-
+//    Logger factory
+    Logger logger = LoggerFactory.getLogger(LoginController.class);
     @GetMapping("/")
     public String display(Model model) {
         model.addAttribute("welcomeMessage", "Login");
@@ -32,7 +35,7 @@ public class LoginController {
     }
     @PostMapping("/doLogin")
     public String doLogin(User user, Model model) {
-
+        logger.info("Entering doLogin()");
         if(userBusinessServiceInterface.authenticateUser(user.getUsername(), user.getPassword()))
             return "redirect:/index/";
         else
