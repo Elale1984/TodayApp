@@ -7,7 +7,16 @@
                   value="%d{yyyy-mm-dd HH:mm:ss} %-5p %c:%L - %m%n" />
         </layout>
     </appender>
-    <logger name="edu.gcu" additivity="false">
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
+        <param name="append" value="true" />
+        <param name="maxFileSize" value="10MB" />
+        <param name="maxBackupIndex" value="1" />
+        <param name="file" value="${catalina.home}/logs/myAppLogs.log" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-mm-dd HH:mm:ss} %-5p %c:%L - %m%n" />
+        </layout>
+    </appender>
+    <logger name="com.heady" additivity="false">
         <level value="INFO" />
         <appender-ref ref="console" />
         <appender-ref ref="file" />
