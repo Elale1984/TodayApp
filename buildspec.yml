@@ -1,19 +1,23 @@
 version: 0.2
-
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 phases:
   install:
-    runtime-versions:
-      java: corretto17
-  pre_build:
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - echo installing maven...
+      - apt-get update -y
+      - apt-get install -y maven
   build:
     commands:
-      - echo Build started on `date`
+      - echo building the Today App
       - mvn install
-  post_build:
-    commands:
-      - echo Build completed on `date`
 artifacts:
   files:
-    - $CODEBUILD_SRC_DIR/imagedefinitions.json
+    - target/*.jar
+    - scripts/*.sh
+    - appspec.yml
+  discard-paths: yes
+cache:
+  paths:
+    - '/root/.m2/**/*'
