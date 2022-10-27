@@ -9,4 +9,4 @@ phases:
   build:
     commands:
       - echo building the Today App
-      - mvn install
+
